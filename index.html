@@ -1,0 +1,34 @@
+<!-- DOOM -->
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+        <ul id="list">
+            <li>  ghgjsjhd  </li>
+            <li> 7878</li>
+            <ul> yuyuii:
+                <li> hdfjhdjfh </li>
+                <li> hdf </li>
+                <ul> hjh 
+                    <li>   sdsd  </li>
+                    <li>   sd  </li>
+                </ul>
+            </ul>
+        </ul>
+     <script>
+         let listChildren_0=document.getElementById("list").children;
+        //  alert (listChildren_0.length);
+        //  let indexChildren = 0;
+         function checkList (listBase){
+            for (let child of listBase){
+             alert (child.firstChild.data);
+             indexChildren +=1            
+             if (child.children){
+                    checkList(child.children)
+                }
+         }
+        }
+         checkList(listChildren_0);
+         alert (`Количество вложенных строк равно ${indexChildren}`)
+    </script>
+    </body>
+    </html>

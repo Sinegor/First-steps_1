@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- Список из объекта -->
+<html>
+<body>
+<!-- <div id="spisok"></div>
+   <scrip>
+    let objectSpisok = {
+        "Рыбы": {
+        "форель": {},
+        "лосось": {}
+      },
+
+      "Деревья": {
+        "Огромные": {
+          "секвойя": {},
+          "дуб": {}
+        },
+        "Цветковые": {
+          "яблоня": {},
+          "магнолия": {}
+        }
+      }
+    };
+function createEl (conteiner, obj){
+    conteiner.append (getSpisok(obj));
+};
+function getSpisok(obj){
+    if (!Object.keys(obj).length) return;
+    let ul = document.createElement("ul")
+    for (let pos in obj){
+        let li = document.createElement ("li");
+        li.innerHTML = pos;
+        let ul_1 = getSpisok(obj[pos]);
+        console.log(ul_1);
+        if(ul_1){
+                li.append (ul_1);
+        }
+        ul.append(li);
+    };
+    return ul;
+};
+let spisok = document.getElementById("spisok");
+createEl (spisok,objectSpisok )
+</scrip> -->
+<!-- Календарь -->
+<div id="dateTable"></div>
+<script>
+function createCalendar (year, month){
+    let table = document.createElement ("table");
+    table.innerHTML ="<tr><th>пн</th><th>вт</th><th>ср</th><th>чт</th><th>пт</th><th>сб</th><th>вс</th></tr>";
+    let tr = document.createElement ("tr");
+    let day = new Date(year, month, 1).getDay()
+    console.log (day);
+    let i =1;
+    while (i<30){
+        let td = document.createElement ("td");
+        if (i<day){
+            td.innerHTML = "";
+            tr.append (td);
+            i+=i;
+            continue;
+        }
+        else{
+                if (i%7==0){
+                    console.log (1);
+                    table.append (tr);
+                    tr.innerHTML = ""
+                    td.innerHTML = i;
+                    tr.append (td);
+                    i+=i;
+                    continue;
+            }
+                else{
+                    td.innerHTML = i;
+                    tr.append (td);
+                    i+=i;
+                    continue;
+        }
+    }
+    }
+    return table
+}
+let table_1 = createCalendar(2020,9);
+console.log (table_1)
+
+// document.getElementById("dateTable").append(createCalendar(2020,9))
+</script>
+</body>
+</html>
